@@ -101,7 +101,13 @@ const getSearchedWeather = async () => {
 
 @media(max-width:1070px){
     .search__wrapper {
-        height: 100dvh;
+        height: 100vmax;
     }
+}
+
+@media(max-width:760px){
+  .search__wrapper{
+    width: 100%;
+  }
 }
 </style>

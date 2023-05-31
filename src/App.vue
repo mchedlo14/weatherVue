@@ -55,4 +55,12 @@ onMounted(() => {
 .main__wrapper {
   display: flex;
 }
+
+@media(max-width:760px){
+  .main__wrapper{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
 </style>

@@ -111,4 +111,10 @@ const weatherData = computed(() => store.getters["weather/getWeatherData"]);
         padding-top: 30px;
     }
 }
+
+@media(max-width:760px){
+  .weather__information__wrapper{
+    width: 100%;
+  }
+}
 </style>
