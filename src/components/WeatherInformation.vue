@@ -1,20 +1,15 @@
 <script setup>
-import { computed,watch,ref } from "vue";
+import { computed,watch } from "vue";
 import { useStore } from "vuex";
 
 const store = useStore();
 
 const weatherData = computed(() => store.getters["weather/getWeatherData"]);
-const statusCode = computed(() => store.getters['statuscode/getStatusCode']);
-
 
 </script>
 
 <template>
-  <div
-    class="weather__information__wrapper"
-    v-if="weatherData && Object.keys(weatherData).length > 0"
-  >
+  <div class="weather__information__wrapper" v-if="weatherData && Object.keys(weatherData).length > 0">
     <div class="detail__box">
       <p class="higlights__text">Today's Highlights</p>
       <div class="higlights__box">

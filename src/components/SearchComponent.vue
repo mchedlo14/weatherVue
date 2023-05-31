@@ -3,7 +3,7 @@ import { useStore } from "vuex";
 import { ref } from "vue";
 import LeftSideWeatherInfo from "./LeftSideWeatherInfo.vue";
 import DateComponent from './DateComponent.vue'
-const API_KEY = "062ac1a4a436ef122a16194ea8248d1a";
+const API_KEY = "84ea813c1e6a9a5900343f5854c6deb7";
 
 const inputValue = ref("");
 const store = useStore();

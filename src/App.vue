@@ -3,14 +3,15 @@ import './style.css';
 import { useStore } from "vuex";
 import SearchComponent from './components/SearchComponent.vue';
 import WeatherInformation from './components/WeatherInformation.vue';
-import {onMounted,ref} from 'vue'
+import Loader from './components/Loader.vue';
+import {onMounted,ref,onBeforeMount} from 'vue'
 
 const lat = ref(0)
 const long = ref(0)
 const loader = ref(true)
 
 const store = useStore();
-const API_KEY = "062ac1a4a436ef122a16194ea8248d1a";
+const API_KEY = "84ea813c1e6a9a5900343f5854c6deb7";
 
 const geoApi = () => {
   if (navigator.geolocation) {
@@ -32,9 +33,10 @@ const getWeather = async () => {
   store.dispatch("weather/setWeatherData", data);
   loader.value = false
 }
-
-onMounted(() => {
+onBeforeMount(() => {
   geoApi()
+})
+onMounted(() => {
   getWeather()
 })
 
@@ -46,7 +48,7 @@ onMounted(() => {
     <WeatherInformation/>
   </div>
   <div v-else>
-    loading
+    <Loader />
   </div>
 </template>
 
