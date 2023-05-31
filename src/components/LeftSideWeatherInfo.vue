@@ -4,7 +4,6 @@ import { useStore } from 'vuex';
 
 const store = useStore();
 const weatherData = computed(() => store.getters['weather/getWeatherData']);
-console.log(weatherData)
 </script>
 
 <template>
