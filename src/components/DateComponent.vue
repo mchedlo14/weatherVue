@@ -1,10 +1,14 @@
 <script setup>
+
+
 const date_ = new Date()
 const day = date_.getDay()
 var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 
 </script>
+
+
 <template>
   <div className="date__container">
     <p className="today__text">Today</p>
@@ -12,6 +16,8 @@ var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "S
     <p className="today__text">{{days[day]}}</p>
   </div>
 </template>
+
+
 <style scoped>
 .date__container{
     align-items: center;
