@@ -30,6 +30,7 @@ const getWeather = async () => {
     `https://api.openweathermap.org/data/2.5/weather?lat=${lat.value}&lon=${long.value}&appid=${API_KEY}`
   );
   const data = await res.json();
+  store.dispatch("weather/setStatusCode", res.status);
   store.dispatch("weather/setWeatherData", data);
   console.log(data);
   loader.value = false;

@@ -4,12 +4,18 @@ import { useStore } from "vuex";
 
 const store = useStore();
 const weatherData = computed(() => store.getters["weather/getWeatherData"]);
+const statusCode = computed(() => store.getters["weather/getStatusCode"]);
+
+const cod = computed(() => {
+  return statusCode.value;
+});
 
 
+console.log(statusCode.value);
 </script>
 
 <template>
-  <div class="weather__information__wrapper" v-if="weatherData && Object.keys(weatherData).length > 0">
+  <div class="weather__information__wrapper" v-if="weatherData && Object.keys(weatherData).length > 0 && cod === 200 ">
     <div class="detail__box">
       <p class="higlights__text">Today's Highlights</p>
       <div class="higlights__box">
@@ -34,12 +40,29 @@ const weatherData = computed(() => store.getters["weather/getWeatherData"]);
       </div>
     </div>
   </div>
+  <div v-else-if="cod !== 200" class="error__container">
+    <p class="error__text">Something went wrong! Please Type another Country</p>
+  </div>
+
   <div v-else>
     Loading...
   </div>
 </template>
 
 <style scoped>
+
+.error__container{
+  width: calc(100% - 338px);
+  height: 100vh;
+  background-color: #100e1d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.error__text{
+  color: whitesmoke;
+  font-size: 30px;
+}
 .weather__information__wrapper {
   width: calc(100% - 338px);
   height: 100vh;
@@ -116,6 +139,12 @@ const weatherData = computed(() => store.getters["weather/getWeatherData"]);
 @media(max-width:760px){
   .weather__information__wrapper{
     width: 100%;
+  }
+  .error__container{
+    width: 100%;
+  }
+  .error__text{
+    text-align: center;
   }
 }
 </style>

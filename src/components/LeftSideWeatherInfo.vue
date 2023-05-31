@@ -4,18 +4,22 @@ import { useStore } from 'vuex';
 
 const store = useStore();
 const weatherData = computed(() => store.getters['weather/getWeatherData']);
+const statusCode = computed(() => store.getters["weather/getStatusCode"]);
 
+const cod = computed(() => {
+  return statusCode.value;
+});
 
 </script>
 
 <template>
-  <div class="left__side__info__wrapper" v-if="weatherData && Object.keys(weatherData).length > 0">
+  <div class="left__side__info__wrapper" v-if="weatherData && Object.keys(weatherData).length > 0 && cod === 200">
     <p class="city__name">{{ weatherData.name || '' }}</p>
     <p class="temperature">{{ weatherData.main && Math.round(weatherData.main.temp - 271.15) || '' }} <span>°C</span> </p>
     <p class="condition">{{ weatherData.weather && weatherData.weather[0].description || '' }}</p>
   </div>
   <div v-else>
-    Loading...
+    
   </div>
 </template>
 

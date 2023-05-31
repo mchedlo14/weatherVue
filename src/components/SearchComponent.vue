@@ -38,8 +38,9 @@ const getSearchedWeather = async () => {
     `https://api.openweathermap.org/data/2.5/weather?q=${inputValue.value}&appid=${API_KEY}`
   );
   const data = await res.json();
+  console.log('call')
+  store.dispatch("weather/setStatusCode", res.status);
   store.dispatch("weather/setWeatherData", data);
-  console.log("make a api request");
   weatherDataArray.value.push(data);
 
   localStorage.setItem(
