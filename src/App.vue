@@ -31,6 +31,7 @@ const getWeather = async () => {
   );
   const data = await res.json();
   store.dispatch("weather/setWeatherData", data);
+  console.log(data);
   loader.value = false;
 };
 

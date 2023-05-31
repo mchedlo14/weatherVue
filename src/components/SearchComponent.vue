@@ -7,13 +7,35 @@ const API_KEY = "84ea813c1e6a9a5900343f5854c6deb7";
 
 const inputValue = ref("");
 const store = useStore();
+const weatherDataArray = ref([]);
+
+const checkLocalStorage = () => {
+  const savedData = localStorage.getItem("weatherDataArray");
+  if (savedData) {
+    const parsedData = JSON.parse(savedData);
+    const matchingData = parsedData.filter(obj => obj.name === inputValue.value.charAt(0).toUpperCase() + inputValue.value.slice(1));
+    if (matchingData.length > 0) {
+      store.dispatch("weather/setWeatherData", matchingData[0]);
+      return true;
+    }
+  }
+  return false;
+};
 
 const getSearchedWeather = async () => {
+  if (checkLocalStorage()) {
+    return;
+  }
+
   const res = await fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${inputValue.value}&appid=${API_KEY}`
   );
   const data = await res.json();
   store.dispatch("weather/setWeatherData", data);
+  console.log('make a api request')
+  weatherDataArray.value.push(data);
+
+  localStorage.setItem("weatherDataArray", JSON.stringify(weatherDataArray.value));
 };
 
 </script>
@@ -32,6 +54,11 @@ const getSearchedWeather = async () => {
     <DateComponent />
   </div>
 </template>
+
+<style scoped>
+/* CSS styles */
+</style>
+
 
 <style scoped>
 .search__wrapper {
