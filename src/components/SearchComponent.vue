@@ -70,7 +70,8 @@ const getSearchedWeather = async () => {
 <style scoped>
 .search__wrapper {
   width: 338px;
-  height: 100vh;
+  /* height: 100vh; */
+  min-height: 700px;
   background-color: #1e213a;
   overflow: hidden;
 }
@@ -106,11 +107,7 @@ const getSearchedWeather = async () => {
   transition: all 0.5s;
 }
 
-@media (max-width: 1070px) {
-  .search__wrapper {
-    height: 100vmax;
-  }
-}
+
 
 @media (max-width: 760px) {
   .search__wrapper {

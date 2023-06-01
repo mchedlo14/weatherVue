@@ -86,6 +86,11 @@ const cod = computed(() => {
   justify-content: center;
   max-width: 328px;
 }
+
+.box:hover{
+  scale: 1.02;
+    transition: all .5s;
+}
 .detail__box {
   height: auto;
   max-width: 700px;
@@ -127,11 +132,5 @@ const cod = computed(() => {
   .weather__information__wrapper{
     width: 100%;
   }
-  /* .error__container{
-    width: 100%;
-  }
-  .error__text{
-    text-align: center;
-  } */
 }
 </style>
