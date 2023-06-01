@@ -5,26 +5,15 @@ import SearchComponent from "./components/SearchComponent.vue";
 import WeatherInformation from "./components/WeatherInformation.vue";
 import Loader from "./components/Loader.vue";
 import { onMounted, ref, watch } from "vue";
+import { geoApi } from "./utils/geoApi";
 
 
 const lat = ref(0);
 const long = ref(0);
 let loader = ref(true);
-
-
 const store = useStore();
 const API_KEY = "84ea813c1e6a9a5900343f5854c6deb7";
 
-const geoApi = () => {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition((currentPosition) => {
-      lat.value = currentPosition.coords.latitude;
-      long.value = currentPosition.coords.longitude;
-    });
-  } else {
-    alert("Geolocation is not supported in this browser");
-  }
-};
 
 const getWeather = async () => {
   const res = await fetch(
@@ -38,9 +27,8 @@ const getWeather = async () => {
 
 watch([lat, long], getWeather);
 
-
 onMounted(() => {
-  geoApi();
+  geoApi(lat,long);
 });
 </script>
 
