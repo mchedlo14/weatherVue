@@ -31,10 +31,14 @@ var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "S
     color: #88869d;
     font-size: 18px;
     font-weight: 500;
+    user-select: none;
+
 }
 .period{
     color: #88869d;
     font-size: 18px;
     font-weight: 500;
+    user-select: none;
+
 }
 </style>

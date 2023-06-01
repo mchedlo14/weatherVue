@@ -42,10 +42,13 @@ const cod = computed(() => {
     font-size: 36px;
     margin: 0;
     padding: 0;
+    user-select: none;
 }
 
 p{
     color: #f5f5f5;
+    user-select: none;
+
 }
 
 span{

@@ -1,9 +1,9 @@
 <script setup>
 import "./style.css";
-import { useStore } from "vuex";
 import SearchComponent from "./components/SearchComponent.vue";
 import WeatherInformation from "./components/WeatherInformation.vue";
 import Loader from "./components/Loader.vue";
+import { useStore } from "vuex";
 import { onMounted, ref, watch } from "vue";
 import { geoApi } from "./utils/geoApi";
 

@@ -1,8 +1,8 @@
 <script setup>
-import { useStore } from "vuex";
-import { ref } from "vue";
 import LeftSideWeatherInfo from "./LeftSideWeatherInfo.vue";
 import DateComponent from "./DateComponent.vue";
+import { useStore } from "vuex";
+import { ref } from "vue";
 
 
 const API_KEY = "84ea813c1e6a9a5900343f5854c6deb7";
@@ -70,7 +70,6 @@ const getSearchedWeather = async () => {
 <style scoped>
 .search__wrapper {
   width: 338px;
-  /* height: 100vh; */
   min-height: 700px;
   background-color: #1e213a;
   overflow: hidden;

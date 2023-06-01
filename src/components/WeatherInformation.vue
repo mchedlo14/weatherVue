@@ -80,11 +80,11 @@ const cod = computed(() => {
   align-items: center;
   background-color: #1e213a;
   border-radius: 4px;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
   max-width: 328px;
+  user-select: none;
 }
 
 .box:hover{
@@ -102,6 +102,8 @@ const cod = computed(() => {
   font-weight: 700;
   margin: 0;
   padding: 0;
+  user-select: none;
+
 }
 
 .higlights__box {
