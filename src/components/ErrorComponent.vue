@@ -4,8 +4,8 @@ import warningImage from "../assets/warning.png";
 
 <template>
   <div class="error__container">
-    <img :src="warningImage" alt="image" />
-    <p class="error__text">Something went wrong! Please type another Country</p>
+    <img :src="warningImage" alt="image"  data-aos="fade-up" />
+    <p class="error__text"  data-aos="fade-up">Something went wrong! Please type another Country</p>
   </div>
 </template>
 <style scoped>
