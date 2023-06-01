@@ -6,10 +6,11 @@ import WeatherInformation from "./components/WeatherInformation.vue";
 import Loader from "./components/Loader.vue";
 import { onMounted, ref, watch } from "vue";
 
+
 const lat = ref(0);
 const long = ref(0);
-
 let loader = ref(true);
+
 
 const store = useStore();
 const API_KEY = "84ea813c1e6a9a5900343f5854c6deb7";
@@ -32,18 +33,19 @@ const getWeather = async () => {
   const data = await res.json();
   store.dispatch("weather/setStatusCode", res.status);
   store.dispatch("weather/setWeatherData", data);
-  console.log(data);
   loader.value = false;
 };
 
 watch([lat, long], getWeather);
+
+
 onMounted(() => {
   geoApi();
 });
 </script>
 
 <template>
-  <div class="main__wrapper" v-if="loader === false">
+  <div class="main__wrapper" v-if="!loader">
     <SearchComponent />
     <WeatherInformation />
   </div>

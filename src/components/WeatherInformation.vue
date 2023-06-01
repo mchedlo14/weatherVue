@@ -2,7 +2,6 @@
 import ErrorComponent from './ErrorComponent.vue'
 import { computed } from "vue";
 import { useStore } from "vuex";
-// import warningImage from '../assets/warning.png'
 const store = useStore();
 const weatherData = computed(() => store.getters["weather/getWeatherData"]);
 const statusCode = computed(() => store.getters["weather/getStatusCode"]);
@@ -12,7 +11,6 @@ const cod = computed(() => {
 });
 
 
-console.log(statusCode.value);
 </script>
 
 <template>
@@ -52,24 +50,6 @@ console.log(statusCode.value);
 
 <style scoped>
 
-/* .error__container{
-  width: calc(100% - 338px);
-  height: 100vh;
-  background-color: #100e1d;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 15px;
-}
-img{
-  widows: 200px;
-  height: 200px;
-}
-.error__text{
-  color: whitesmoke;
-  font-size: 30px;
-} */
 .weather__information__wrapper {
   width: calc(100% - 338px);
   height: 100vh;
