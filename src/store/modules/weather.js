@@ -1,29 +1,3 @@
-// export default {
-//     namespaced: true,
-//     state: {
-//       weatherData: null,
-//       statusCode: null,
-//     },
-//     mutations: {
-//       SET_WEATHER_DATA(state, data) {
-//         state.weatherData = data;
-//       },
-//       setStatusCode(state, code) {
-//         state.statusCode = code;
-//       },
-//     },
-//     actions: {
-//       setWeatherData({ commit }, data) {
-//         commit('SET_WEATHER_DATA', data);
-//       },
-//     },
-//     getters: {
-//       getWeatherData: (state) => state.weatherData,
-//       getStatusCode(state) {
-//         return state.statusCode;
-//       },
-//     },
-//   };
 export default {
   namespaced: true,
   state: {

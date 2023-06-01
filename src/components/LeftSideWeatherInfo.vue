@@ -1,6 +1,8 @@
 <script setup>
 import { computed } from 'vue';
 import { useStore } from 'vuex';
+import warningImage from "../assets/warning.png";
+
 
 const store = useStore();
 const weatherData = computed(() => store.getters['weather/getWeatherData']);
@@ -19,7 +21,7 @@ const cod = computed(() => {
     <p class="condition">{{ weatherData.weather && weatherData.weather[0].description || '' }}</p>
   </div>
   <div v-else>
-    
+    <img :src="warningImage" alt="warn image" class="warn__img"/>
   </div>
 </template>
 
@@ -60,5 +62,12 @@ span{
     font-size: 26px;
     font-weight: 600;
     line-height: 42px;
+}
+.warn__img{
+  widows: 150px;
+  height: 150px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 160px;
 }
 </style>

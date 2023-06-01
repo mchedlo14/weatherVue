@@ -6,6 +6,7 @@ import DateComponent from "./DateComponent.vue";
 
 
 const API_KEY = "84ea813c1e6a9a5900343f5854c6deb7";
+
 const inputValue = ref("");
 const store = useStore();
 const weatherDataArray = ref([]);

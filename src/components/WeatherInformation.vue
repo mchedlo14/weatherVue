@@ -1,7 +1,8 @@
 <script setup>
+import ErrorComponent from './ErrorComponent.vue'
 import { computed } from "vue";
 import { useStore } from "vuex";
-
+// import warningImage from '../assets/warning.png'
 const store = useStore();
 const weatherData = computed(() => store.getters["weather/getWeatherData"]);
 const statusCode = computed(() => store.getters["weather/getStatusCode"]);
@@ -40,9 +41,9 @@ console.log(statusCode.value);
       </div>
     </div>
   </div>
-  <div v-else-if="cod !== 200" class="error__container">
-    <p class="error__text">Something went wrong! Please Type another Country</p>
-  </div>
+  
+  <ErrorComponent v-else-if="cod !== 200"/>
+  
 
   <div v-else>
     Loading...
@@ -51,18 +52,24 @@ console.log(statusCode.value);
 
 <style scoped>
 
-.error__container{
+/* .error__container{
   width: calc(100% - 338px);
   height: 100vh;
   background-color: #100e1d;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+img{
+  widows: 200px;
+  height: 200px;
 }
 .error__text{
   color: whitesmoke;
   font-size: 30px;
-}
+} */
 .weather__information__wrapper {
   width: calc(100% - 338px);
   height: 100vh;
@@ -140,11 +147,11 @@ console.log(statusCode.value);
   .weather__information__wrapper{
     width: 100%;
   }
-  .error__container{
+  /* .error__container{
     width: 100%;
   }
   .error__text{
     text-align: center;
-  }
+  } */
 }
 </style>
