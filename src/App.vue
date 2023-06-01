@@ -7,13 +7,11 @@ import { useStore } from "vuex";
 import { onMounted, ref, watch } from "vue";
 import { geoApi } from "./utils/geoApi";
 
-
 const lat = ref(0);
 const long = ref(0);
 let loader = ref(true);
 const store = useStore();
 const API_KEY = "84ea813c1e6a9a5900343f5854c6deb7";
-
 
 const getWeather = async () => {
   const res = await fetch(
@@ -28,7 +26,7 @@ const getWeather = async () => {
 watch([lat, long], getWeather);
 
 onMounted(() => {
-  geoApi(lat,long);
+  geoApi(lat, long);
 });
 </script>
 
@@ -37,9 +35,7 @@ onMounted(() => {
     <SearchComponent />
     <WeatherInformation />
   </div>
-  <div v-else>
-    <Loader />
-  </div>
+  <Loader v-else />
 </template>
 
 <style scoped>
@@ -47,8 +43,8 @@ onMounted(() => {
   display: flex;
 }
 
-@media(max-width:760px){
-  .main__wrapper{
+@media (max-width: 760px) {
+  .main__wrapper {
     flex-direction: column;
     justify-content: center;
     align-items: center;
